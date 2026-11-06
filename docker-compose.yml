@@ -1,0 +1,10 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: validation_php81_test
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: vendor/bin/phpunit

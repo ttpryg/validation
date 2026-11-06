@@ -10,9 +10,9 @@ use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface as SymfonyValidatorInterface;
 use Ttpryg\Validation\Exception\ValidationException;
 
-final readonly class Validator
+final class Validator
 {
-    private SymfonyValidatorInterface $symfonyValidator;
+    private readonly SymfonyValidatorInterface $symfonyValidator;
 
     public function __construct(?SymfonyValidatorInterface $symfonyValidator = null)
     {
@@ -83,6 +83,7 @@ final readonly class Validator
     }
 
     /**
+     * @param  iterable<\Symfony\Component\Validator\ConstraintViolationInterface>  $violations
      * @return array<string, list<string>>
      */
     private function groupErrors(iterable $violations): array
